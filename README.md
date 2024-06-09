@@ -107,3 +107,19 @@ docker build -t {nameOfImage} .( <= relative path)
 # docker background running
 
 option : -d (demon)
+
+# Dockerfile exists flow
+
+cd target folder
+
+- build image with DockerFile
+  docker build -t {nameOfImageYouWant} .(relative path)
+  e.g. docker build -t frontend-img .
+
+- build container and run
+  docker run --name {nameOfContainerYouWant} -v $(pwd):/home/node/app -p 8080:8080 {nameOfImage}
+
+e.g. docker run --name frontend-con -v $(pwd):/home/node/app -p 8080:8080 frontend-img
+
+-v means volume which is your storage and add path
+-p port
